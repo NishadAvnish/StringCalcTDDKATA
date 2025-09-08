@@ -26,3 +26,14 @@ Steps:
 
 5.  Calling add with a negative number will throw an exception: "negative numbers not allowed <negative_number>".
         If there are multiple negative numbers, show all of them in the exception message, separated by commas.
+
+
+
+
+## Steps to run code:
+Note: Make sure flutter is installed and flutter doctor  command es executed without any error
+
+1. to run test cases,in terminal navigate to project  folder and enter "flutter test", this will run all the edge cases
+2. to run working code
+          - go to main.dart file and change the input String of your choice valid.
+          - now in terminal enter " dart run main.dart" it will execute the code for your given input.
