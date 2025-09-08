@@ -39,4 +39,8 @@ void main() {
       ),
     );
   });
+
+  test("custom delimiters with empty numbers", () {
+    expect(calculator.addNumber("//;\n"), 0);
+  });
 }
