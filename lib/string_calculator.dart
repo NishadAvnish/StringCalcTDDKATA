@@ -12,7 +12,22 @@ class StringCalculator {
     }
 
     List<String> numList = numbers.split(RegExp(delimiter));
-    List<int> parsedList = numList.map((ele) => int.parse(ele)).toList();
+    String negativeNumbers = "";
+    bool hasNegativeNumber = false;
+
+    List<int> parsedList = numList.map((ele) {
+      int num = int.parse(ele);
+      if (num < 0) {
+        hasNegativeNumber = num < 0;
+        negativeNumbers += negativeNumbers.isEmpty ? "$num" : ",$num";
+      }
+      return num;
+    }).toList();
+
+    if (hasNegativeNumber) {
+      throw FormatException("negative numbers not allowed $negativeNumbers");
+    }
+
     int sum = parsedList.reduce(
       (accumulator, currentEle) => accumulator + currentEle,
     );

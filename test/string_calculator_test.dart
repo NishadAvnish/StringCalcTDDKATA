@@ -28,6 +28,6 @@ void main() {
   });
 
   test("throw exception on negative numbers", () {
-     expect(calculator.addNumber("1,-1,3,4,-2"), throwsA(predicate((e)=>e.toString()=="negative numbers not allowed -1,-2")));
+     expect(()=>calculator.addNumber("1,-1,3,4,-2"), throwsA(predicate((e)=>e is FormatException && e.message=="negative numbers not allowed -1,-2")));
   });
 }
