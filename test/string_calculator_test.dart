@@ -22,4 +22,8 @@ void main() {
   test("return sum with newlines as delimiters", () {
     expect(calculator.addNumber("1\n2,3"), equals(6));
   });
+
+  test("return sum of input with custom delimiters", () {
+    expect(calculator.addNumber("//;\n1;2"), equals(3));
+  });
 }
