@@ -43,4 +43,8 @@ void main() {
   test("custom delimiters with empty numbers", () {
     expect(calculator.addNumber("//;\n"), 0);
   });
+
+  test("input satifying all above condition except -ve number", () {
+    expect(calculator.addNumber("//;\n1;2\n5"), 8);
+  });
 }
