@@ -4,8 +4,21 @@ class StringCalculator {
     if (numbers.startsWith("//")) {
       int newLineIndex = numbers.indexOf("\n");
       if (newLineIndex == -1) throw FormatException("Invalid input");
-      delimiter = numbers.substring(2, newLineIndex);
-      delimiter = '[$delimiter \n]';
+      
+      String delimiterPart = numbers.substring(2, newLineIndex);
+
+      // Check if delimiter is wrapped in [ ] for multi char delimiter
+      if (delimiterPart.startsWith("[") && delimiterPart.endsWith("]")) {
+        String multiDelimiter = delimiterPart.substring(
+          1,
+          delimiterPart.length - 1,
+        );
+        delimiter ='${RegExp.escape(multiDelimiter)}|\n';
+        
+      } else {
+        delimiter = '${RegExp.escape(delimiterPart)}|\n';
+      }
+
       numbers = numbers.substring(newLineIndex + 1);
     }
 
