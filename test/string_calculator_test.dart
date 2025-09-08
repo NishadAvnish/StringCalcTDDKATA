@@ -47,4 +47,14 @@ void main() {
   test("input satifying all above condition except -ve number", () {
     expect(calculator.addNumber("//;\n1;2\n5"), 8);
   });
+
+  test("invalid input starting with //", () {
+    expect(()=>calculator.addNumber("//;1;2;5"),  throwsA(
+        predicate(
+          (e) =>
+              e is FormatException &&
+              e.message == "Invalid input",
+        ),
+      ),);
+  });
 }
