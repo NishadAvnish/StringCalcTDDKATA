@@ -26,4 +26,8 @@ void main() {
   test("return sum of input with custom delimiters", () {
     expect(calculator.addNumber("//;\n1;2"), equals(3));
   });
+
+  test("throw exception on negative numbers", () {
+     expect(calculator.addNumber("1,-1,3,4,-2"), throwsA(predicate((e)=>e.toString()=="negative numbers not allowed -1,-2")));
+  });
 }
