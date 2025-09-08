@@ -11,4 +11,8 @@ void main() {
   test("return 0 incase of empty string input", () {
     expect(calculator.addNumber(""), equals(0));
   });
+
+  test("return number itself for input with single number", () {
+    expect(calculator.addNumber("1"), equals(1));
+  });
 }
