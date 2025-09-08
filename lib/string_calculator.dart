@@ -3,8 +3,9 @@ class StringCalculator {
     String delimiter = r'[, \n]';
     if (numbers.startsWith("//")) {
       int newLineIndex = numbers.indexOf("\n");
+      if (newLineIndex == -1) throw FormatException("Invalid input");
       delimiter = numbers.substring(2, newLineIndex);
-      delimiter =  '[$delimiter \n]';
+      delimiter = '[$delimiter \n]';
       numbers = numbers.substring(newLineIndex + 1);
     }
 
