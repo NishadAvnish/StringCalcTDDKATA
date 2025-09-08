@@ -49,12 +49,15 @@ void main() {
   });
 
   test("invalid input starting with //", () {
-    expect(()=>calculator.addNumber("//;1;2;5"),  throwsA(
-        predicate(
-          (e) =>
-              e is FormatException &&
-              e.message == "Invalid input",
-        ),
-      ),);
+    expect(
+      () => calculator.addNumber("//;1;2;5"),
+      throwsA(
+        predicate((e) => e is FormatException && e.message == "Invalid input"),
+      ),
+    );
+  });
+
+  test("Numbers bigger than 1000 should be ignored", () {
+    expect(calculator.addNumber("2,1001"), 2);
   });
 }
