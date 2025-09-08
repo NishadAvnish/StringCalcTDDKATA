@@ -60,4 +60,7 @@ void main() {
   test("Numbers bigger than 1000 should be ignored", () {
     expect(calculator.addNumber("2,1001"), 2);
   });
+  test("multicharacter delimiter", () {
+    expect(calculator.addNumber("//[***]\n1***2***3"), 6);
+  });
 }
