@@ -28,9 +28,10 @@ class StringCalculator {
       throw FormatException("negative numbers not allowed $negativeNumbers");
     }
 
-    int sum = parsedList.reduce(
-      (accumulator, currentEle) => accumulator + currentEle,
-    );
+    int sum = parsedList.fold(0,(accumulator, currentEle) {
+      if (currentEle > 1000) return accumulator;
+      return accumulator + currentEle;
+    });
     return sum;
   }
 }
