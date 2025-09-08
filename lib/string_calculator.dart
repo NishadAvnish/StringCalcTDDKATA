@@ -4,6 +4,7 @@ class StringCalculator {
     if (numbers.startsWith("//")) {
       int newLineIndex = numbers.indexOf("\n");
       delimiter = numbers.substring(2, newLineIndex);
+      delimiter =  '[$delimiter \n]';
       numbers = numbers.substring(newLineIndex + 1);
     }
 
