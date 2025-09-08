@@ -4,7 +4,7 @@ class StringCalculator {
       return 0;
     }
 
-    List<String> numList = numbers.split(",");
+    List<String> numList = numbers.split(RegExp(r'[, \n]'));
     List<int> parsedList = numList.map((ele) => int.parse(ele)).toList();
     int sum = parsedList.reduce(
       (accumulator, currentEle) => accumulator + currentEle,
